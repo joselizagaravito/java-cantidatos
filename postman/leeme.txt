@@ -1,0 +1,5 @@
+Se debe definir la variable 
+base_url = http://127.0.0.1:9988
+o
+base_url = http://localhost:9988
+dependiendo el caso de su ambiente de desarrollo
