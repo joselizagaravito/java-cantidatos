@@ -1,9 +1,13 @@
+CREATE DATABASE IF NOT EXISTS candidatos_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE candidatos_db;
+
 CREATE TABLE IF NOT EXISTS candidates (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    gender ENUM('M','F') NOT NULL,
-    expected_salary DECIMAL(10,2) NOT NULL,
+    gender ENUM('M', 'F', 'O') NOT NULL,
+    expected_salary DECIMAL(10, 2) NOT NULL,
     created_by VARCHAR(50) NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_by VARCHAR(50),

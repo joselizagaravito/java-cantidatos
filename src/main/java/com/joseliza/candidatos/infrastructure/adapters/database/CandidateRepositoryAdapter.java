@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import com.joseliza.candidatos.domain.model.Candidate;
 import com.joseliza.candidatos.domain.port.CandidateRepositoryPort;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,12 +18,15 @@ public class CandidateRepositoryAdapter implements CandidateRepositoryPort {
     public CandidateRepositoryAdapter(JpaCandidateRepository jpaRepo) {
         this.jpaRepo = jpaRepo;
     }
-
+    
     @Override
     public List<Candidate> findAll() {
-        return jpaRepo.findAll().stream()
-                .map(this::toDomain)
-                .collect(Collectors.toList());
+        List<CandidateEntity> entities = jpaRepo.findAll();
+        List<Candidate> candidates = new ArrayList<>();
+        for (CandidateEntity entity : entities) {
+            candidates.add(toDomain(entity));
+        }
+        return candidates;
     }
 
     @Override
