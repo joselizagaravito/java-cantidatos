@@ -8,7 +8,6 @@ import com.joseliza.candidatos.domain.port.CandidateRepositoryPort;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public class CandidateRepositoryAdapter implements CandidateRepositoryPort {
