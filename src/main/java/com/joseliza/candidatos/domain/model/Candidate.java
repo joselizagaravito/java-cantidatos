@@ -19,6 +19,6 @@ public class Candidate {
     private Date createdAt;
     private String updatedBy;
     private Date updatedAt;
-    private Integer rowstate;
+    private Integer rowstate = 1;
     private Date lastupdate;
 }

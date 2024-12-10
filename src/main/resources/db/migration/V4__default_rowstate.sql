@@ -1,0 +1,2 @@
+ALTER TABLE candidates 
+MODIFY rowstate TINYINT NOT NULL DEFAULT 1;

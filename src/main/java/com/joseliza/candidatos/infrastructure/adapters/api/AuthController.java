@@ -8,6 +8,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +31,7 @@ public class AuthController {
 			@ApiResponse(responseCode = "401", description = "Usuario o clave inválidos.") })
 	public String login(@RequestBody LoginRequest loginRequest) {
 		if ("admin".equals(loginRequest.getUsername()) && "admin".equals(loginRequest.getPassword())) {
-			return jwtUtil.generateToken(loginRequest.getUsername());
+			return jwtUtil.generateToken(loginRequest.getUsername(), List.of("ROLE_ADMIN", "ROLE_USER"));
 		}
 		throw new RuntimeException("Usuario o clave inválidos");
 	}
