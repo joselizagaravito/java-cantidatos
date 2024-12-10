@@ -18,26 +18,122 @@
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaWF0IjoxNzMzODEwMTQ3LCJleHAiOjE3MzM4MTM3NDd9.WsK1n5QQg1BLPKknc-NarA8kt1giCcm6GQx04hjOpB0",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "{{base_url}}/candidates",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+						"candidates"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Post agregar candidato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaWF0IjoxNzMzODEwMTQ3LCJleHAiOjE3MzM4MTM3NDd9.WsK1n5QQg1BLPKknc-NarA8kt1giCcm6GQx04hjOpB0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Alberto Diaz\",\r\n  \"email\": \"alberto.diaz@gmail.com\",\r\n  \"gender\": \"M\",\r\n  \"expectedSalary\": 9000.0,\r\n  \"createdBy\": \"admin\",\r\n  \"createdAt\": \"2024-12-10T00:00:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/candidates",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"candidates"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Post actualizar candidato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaWF0IjoxNzMzODEwMTQ3LCJleHAiOjE3MzM4MTM3NDd9.WsK1n5QQg1BLPKknc-NarA8kt1giCcm6GQx04hjOpB0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Carlos Pérez Anicama\",\r\n  \"email\": \"carlos.perez@example.com\",\r\n  \"gender\": \"M\",\r\n  \"expectedSalary\": 9500.0,\r\n  \"updatedBy\": \"admin\",\r\n  \"updatedAt\": \"2024-12-09T12:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/candidates/8",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"candidates",
+						"8"
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
